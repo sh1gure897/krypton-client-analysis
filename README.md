@@ -92,3 +92,6 @@ grep -nE "krypton-client|sessionToken|method_1674" decompiled/skid/gypsyy/DonutB
 I'm a Minecraft player, not a malware analyst. This is what I found reading the decompiled code — no dynamic analysis, no sandboxing, no network capture. If you spot something I got wrong, open an issue.
 
 Treat anything in this repo as informational. Don't redistribute the malicious JAR. Don't run it.
+
+このマルウェアが配布されたサーバー: https://discord.gg/AXVgAA7Eq5
+オーナー曰く数日後にマルウェアを取り除いた安定板を配布するらしいです。
