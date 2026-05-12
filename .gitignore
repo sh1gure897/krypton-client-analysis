@@ -1,0 +1,6 @@
+*.jar
+*.class
+*.log
+decompiled/
+sample.jar
+cfr.jar

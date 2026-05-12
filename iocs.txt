@@ -1,0 +1,54 @@
+Krypton Client — Indicators of Compromise
+==========================================
+Sample: krypton-1_21_1-v15_CLEANED.jar
+Analysis date: 2026-05-13
+
+# Hashes
+SHA-256  dffd8a921863a5ceb26ee7cf5b1e8094463287c12ea04d191373ba11c82923a0
+MD5      fae8b6c19556e0eccae78e0e725addd1
+Filesize 620716
+
+# Network
+Domain      krypton-client.store
+URL         https://krypton-client.store/
+Method      POST
+Content     application/json
+User-Agent  nxes
+
+# Strings in JSON payload (useful for detection rules / PCAP filters)
+"type":"login"
+"type":"logout"
+"token":"
+"username":"
+"uuid":"
+"server":"
+
+# Stdout / log strings (look for these in latest.log / debug.log)
+[User Tracker] User tracking system initialized
+[User Tracker] Registering user:
+[User Tracker] Sent to website:
+[User Tracker] Failed. Status:
+[User Tracker] Disconnect sent. Status:
+[User Tracker] Unregistering user:
+[User Tracker] Error fetching DonutSMP stats:
+
+# Java package / class identifiers
+skid.gypsyy.*
+skid.gypsyy.Main
+skid.gypsyy.DonutBBC
+skid.gypsyy.module.modules.client.SelfDestruct
+q3r.d4526l.f1a7.kUXevhI   (obfuscated main-class — present in original, stripped from _CLEANED build)
+
+# Mod metadata masquerade
+fabric.mod.json claims:  id=immediatelyfast, name=ImmediatelyFast, author=RK_01
+Real entrypoint:         skid.gypsyy.Main
+
+# Burnt third-party credential
+DonutSMP API bearer:     7f156f067bf143b28b09eaa15b62dd6b
+(hardcoded in DonutBBC.fetchDonutStats — DonutSMP staff should consider rotating)
+
+# Replacement payload used by SelfDestruct module (benign file used to cover tracks)
+https://cdn.modrinth.com/data/8shC1gFX/versions/sXO3idkS/BetterF3-11.0.1-Fabric-1.21.jar
+
+# Hosts/firewall blocklist line
+0.0.0.0 krypton-client.store
